@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Tesla Solar Roof Calculator</title>
+  </head>
+  <body>
+    <main class="calc-wrapper">
+      <h1 class="form-title">Tesla Solar Roof Calculator</h1>
+      <!-- Solar Roof Data Inputs -->
+      <form
+        id="tesla-form"
+        action="https://formsubmit.co/ron@creatiquemedia.com"
+        method="POST"
+      >
+        <section class="calc-form-section-1">
+          <section class="customer-info">
+            <label for="first-name" class="first-name-label">
+              First Name*
+            </label>
+            <input
+              type="text"
+              class="first-name-input"
+              name="First Name"
+              required
+            />
+            <label for="last-name" class="name last-name-label">
+              Last Name*
+            </label>
+            <input
+              type="text"
+              class="last-name-input"
+              name="Last Name"
+              required
+            />
+            <label for="phone-number" class="phone-number">
+              Phone Number (555-555-5555)*
+            </label>
+            <input
+              type="tel"
+              class="phone-number"
+              id="phone-number"
+              name="Phone Number"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              required
+            />
+            <label for="email" class="email-label">Email*</label>
+            <input type="email" class="email" name="Email" required />
+          </section>
+
+          <!-- Address Section -->
+
+          <section class="address-section">
+            <label for="addr-sec">Address Selection*</label>
+            <input
+              type="text"
+              class="input"
+              placeholder="Address"
+              id="location"
+              name="Address"
+              required
+            />
+            <input
+              type="text"
+              class="input"
+              placeholder="City"
+              id="locality"
+              name="City"
+              required
+            />
+
+            <input
+              type="text"
+              class="input"
+              placeholder="State/Province"
+              id="administrative_area_level_1"
+              name="State/Province"
+              required
+            />
+
+            <input
+              type="text"
+              class="input"
+              placeholder="Zip/Postal code"
+              id="postal_code"
+              name="Zip/Postal Code"
+            />
+          </section>
+
+          <section class="total-home-sqft">
+            <label class="total-home-sqft-label" for="total-home-sqft"
+              >Total Home Square Footage*</label
+            >
+            <input
+              class="total-home-sqft-input"
+              id="total-home-sqft-input"
+              name="Total Home Sqft"
+              type="number"
+              required
+            />
+          </section>
+
+          <section class="calculated-roof-sqft">
+            <label class="calculated-roof-sqft-label" for="calculated-roof-sqft"
+              >Calculated Roof Square Footage*</label
+            >
+            <input
+              class="calculated-roof-sqft-input"
+              id="calculated-roof-sqft-input"
+              name="Calculated Roof Sqft"
+              type="number"
+              required
+            />
+          </section>
+
+          <section class="annual-kwh">
+            <label class="annual-kwh-label" for="annual-kwh"
+              >Total Annual Kilowatt Hours (kWh) Found on Utility Bill*</label
+            >
+            <input
+              class="annual-kwh-input"
+              id="annual-kwh-input"
+              name="Annual kWh"
+              type="text"
+              required
+            />
+          </section>
+
+          <section class="calculated-kw">
+            <label class="calculate-kw-label" for="calculated-kw"
+              >Calculated Kilowatts (kW)</label
+            >
+            <input class="calculated-kw-input" id="calculated-kw-input"
+            name="Calcualted kW" type="text" value-" " required />
+          </section>
+
+          <section class="system-section">
+            <label class="roof-complexity-label" for="roof-complexity"
+              >Roof Complexity Type*</label
+            >
+            <select id="roof-complexity-input" name="Roof Complexity Type">
+              <option selected disabled hidden>Select an Option</option>
+              <option id="simple" value="simple">Simple</option>
+              <option id="moderate" value="moderate">Moderate</option>
+              <option id="complex" value="complex">Complex</option>
+            </select>
+
+            <label class="system-size-label" for="system-size"
+              >System Size*</label
+            >
+
+            <input
+              type="text"
+              class="system-size-input"
+              id="system-size-input"
+              value="4.0"
+              name="System Size"
+              required
+            />
+
+            <label class="powerwall-battery-label" for="powerwall-battery"
+              >Powerwall Battery Storage*</label
+            >
+            <button class="btn powerwall-battery-plus-btn" type="button">
+              +
+            </button>
+            <input
+              type="text"
+              class="powerwall-battery-input"
+              id="powerwall-battery-input"
+              name="Powerwall Battery"
+              required
+            />
+            <button class="btn powerwall-battery-minus-btn" type="button">
+              -
+            </button>
+          </section>
+        </section>
+
+        <!-- Totals and Incentives Calculations -->
+        <section class="calc-form-section-2">
+          <section class="totals-section">
+            <label class="roof-before-itc" for="roof-before-itc"
+              >Solar Roof Price Before Incentives</label
+            >
+            <input
+              type="text"
+              class="input"
+              id="roof-price-before-itc"
+              name="Roof Price Before ITC"
+              required
+            />
+
+            <label
+              class="powerwall-price-before-itc"
+              for="powerwall-price-before-itc"
+              >Powerwall Price Before Incentives</label
+            >
+            <input
+              type="text"
+              class="input"
+              id="powerwall-price-before-itc"
+              name="Powerwall Price Before ITC"
+              required
+            />
+
+            <label class="est-total-before-itc" for="est-total-before-itc"
+              >Estimated Total Price Before Incentives</label
+            >
+            <input
+              type="text"
+              class="input"
+              id="est-total-before-itc"
+              name="Estimated Total Before ITC"
+              required
+            />
+
+            <label class="est-itc" for="est-itc">Estimated Solar ITC</label>
+            <input
+              type="text"
+              class="input"
+              id="est-itc"
+              name="Estimated ITC"
+              required
+            />
+          </section>
+        </section>
+      </form>
+      <section class="submit-section">
+        <input
+          class="btn submit-btn"
+          type="submit"
+          value="Submit"
+          form="tesla-form"
+          required
+        />
+      </section>
+    </main>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

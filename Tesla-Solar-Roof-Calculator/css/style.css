@@ -1,0 +1,320 @@
+/** Set Global Styling Variables **/
+
+:root {
+  /** Fonts **/
+  --mainFont: "Arial";
+  --textFont: "Open Sans", sans-serif;
+  --secondaryFont: "Raleway", sans-serif;
+
+  /** Colors **/
+  --primary: #4f5449;
+  --darkGray: #2f2e2e;
+  --lightGray: #ebebeb;
+  --white: #fff;
+  --black: #000;
+}
+
+/** Apply Natural Box Layout Model to All Elements - Allow Components to Change **/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/** Universal Styles **/
+
+html {
+  font-size: 62.5%; /* Now 10px = 1rem! */
+}
+
+body {
+  font-family: var(--mainFont);
+  font-size: 1.6rem;
+  line-height: 2;
+}
+
+form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.form-title {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+label {
+  font-weight: bold;
+  text-align: center;
+  width: 50%;
+}
+
+input {
+  width: 50%;
+  padding: 2rem;
+  text-align: center;
+}
+
+select {
+  width: 50%;
+  padding: 2rem;
+  text-align: center;
+}
+
+button {
+  background-color: var(--primary);
+  text-decoration: none;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: none;
+  color: var(--white);
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/** Individual Element Styles **/
+
+/** Calculator Form Section 1 Styles **/
+
+.calc-form-section-1 * {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.calc-form-section-1 label {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.customer-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/** Style Google API Address Autocomplete Section **/
+
+.address-section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.sb-title {
+  font-family: var(--mainFont);
+  font-weight: bold;
+}
+
+/** Roof Calculations **/
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.total-home-sqft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculated-roof-sqft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.annual-kwh {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculated-kw {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.system-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.system-section button {
+  width: 50%;
+}
+/** Calculator Form Section 2 Styles **/
+
+.calc-form-section-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/** Style Home Size Section **/
+
+/** Calculator Form 2 Styles **/
+.totals-section {
+  border: var(--black);
+  border-style: solid;
+  background: var(--lightGray);
+  margin-right: 5rem;
+  border-width: 1px;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.totals-section label {
+  margin-top: 2rem;
+}
+
+.submit-section {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.submit-btn {
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: #ffffff;
+  color: #ffffff;
+  background-color: var(--primary);
+  padding: 2rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-radius: 1rem;
+  width: 10%;
+  cursor: pointer;
+  margin-top: 10rem;
+}
+
+.submit-btn:hover {
+  background: var(--white);
+  color: var(--black);
+  border: 0.2rem var(--black) solid;
+}
+
+@media only screen and (max-width: 1260px) {
+  form {
+    display: block;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    width: 100%;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  button {
+    margin: auto;
+    width: 100%;
+  }
+
+  input {
+    font-size: 1rem;
+  }
+
+  .calc-form-section-1 {
+    margin-bottom: 4rem;
+  }
+
+  .customer-info {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 0;
+  }
+
+  .address-section {
+    margin: auto;
+    width: 50%;
+  }
+
+  .total-home-sqft {
+    margin: auto;
+    width: 50%;
+  }
+
+  .calculated-roof-sqft {
+    margin: auto;
+    width: 50%;
+  }
+
+  .annual-kwh {
+    margin: auto;
+    width: 50%;
+  }
+
+  .calculated-kw {
+    margin: auto;
+    width: 50%;
+  }
+
+  .system-section {
+    margin: auto;
+    width: 50%;
+  }
+
+  option {
+    font-size: 1rem;
+  }
+
+  .totals-section {
+    margin: 0;
+    width: 50%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    min-height: 50rem;
+  }
+
+  .totals-section label {
+    min-width: 10rem;
+  }
+
+  .totals-section input {
+    font-size: 1rem;
+    min-width: 10rem;
+  }
+
+  .submit-btn {
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 1115px) {
+  section:nth-of-type(1) {
+    min-height: 0 !important;
+  }
+}
