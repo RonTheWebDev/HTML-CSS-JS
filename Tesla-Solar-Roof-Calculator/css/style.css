@@ -9,7 +9,7 @@
   /** Colors **/
   --primary: #4f5449;
   --darkGray: #2f2e2e;
-  --lightGray: #ebebeb;
+  --lightGray: #d8d8d8;
   --white: #fff;
   --black: #000;
 }
@@ -59,6 +59,7 @@ input {
   width: 50%;
   padding: 2rem;
   text-align: center;
+  background: var(--white);
 }
 
 select {
@@ -98,7 +99,7 @@ button {
   align-items: center;
 }
 
-.customer-info {
+.customer-info-section {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -112,11 +113,6 @@ button {
   text-align: center;
 }
 
-.sb-title {
-  font-family: var(--mainFont);
-  font-weight: bold;
-}
-
 /** Roof Calculations **/
 
 /* Chrome, Safari, Edge, Opera */
@@ -127,32 +123,32 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.total-home-sqft {
+.total-home-sqft-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.calculated-roof-sqft {
+.calculated-roof-sqft-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.annual-kwh {
+.annual-kwh-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.calculated-kw {
+.calculated-kw-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -181,7 +177,7 @@ input[type=number] {
 /** Style Home Size Section **/
 
 /** Calculator Form 2 Styles **/
-.totals-section {
+.est-totals-section {
   border: var(--black);
   border-style: solid;
   background: var(--lightGray);
@@ -196,7 +192,7 @@ input[type=number] {
   border-radius: 1rem;
 }
 
-.totals-section label {
+.est-totals-section label {
   margin-top: 2rem;
 }
 
@@ -224,6 +220,13 @@ input[type=number] {
   background: var(--white);
   color: var(--black);
   border: 0.2rem var(--black) solid;
+}
+
+.total-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 1260px) {

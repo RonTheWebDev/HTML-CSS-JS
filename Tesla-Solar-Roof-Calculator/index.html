@@ -17,7 +17,7 @@
         method="POST"
       >
         <section class="calc-form-section-1">
-          <section class="customer-info">
+          <section class="customer-info-section">
             <label for="first-name" class="first-name-label">
               First Name*
             </label>
@@ -42,24 +42,29 @@
             <input
               type="tel"
               class="phone-number"
-              id="phone-number"
+              id="phone-number-input"
               name="Phone Number"
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               required
             />
-            <label for="email" class="email-label">Email*</label>
+            <label class="email-label" for="email">Email*</label>
             <input type="email" class="email" name="Email" required />
           </section>
 
           <!-- Address Section -->
 
           <section class="address-section">
-            <label for="addr-sec">Address Selection*</label>
+            <label
+              class="address-section-label"
+              id="address-section-label"
+              for="addr-sec"
+              >Address Selection*</label
+            >
             <input
               type="text"
               class="input"
               placeholder="Address"
-              id="location"
+              id="location-input"
               name="Address"
               required
             />
@@ -67,7 +72,7 @@
               type="text"
               class="input"
               placeholder="City"
-              id="locality"
+              id="locality-input"
               name="City"
               required
             />
@@ -85,12 +90,12 @@
               type="text"
               class="input"
               placeholder="Zip/Postal code"
-              id="postal_code"
+              id="postal-code-input"
               name="Zip/Postal Code"
             />
           </section>
 
-          <section class="total-home-sqft">
+          <section class="total-home-sqft-section">
             <label class="total-home-sqft-label" for="total-home-sqft"
               >Total Home Square Footage*</label
             >
@@ -103,7 +108,7 @@
             />
           </section>
 
-          <section class="calculated-roof-sqft">
+          <section class="calculated-roof-sqft-section">
             <label class="calculated-roof-sqft-label" for="calculated-roof-sqft"
               >Calculated Roof Square Footage*</label
             >
@@ -116,7 +121,7 @@
             />
           </section>
 
-          <section class="annual-kwh">
+          <section class="annual-kwh-section">
             <label class="annual-kwh-label" for="annual-kwh"
               >Total Annual Kilowatt Hours (kWh) Found on Utility Bill*</label
             >
@@ -129,7 +134,7 @@
             />
           </section>
 
-          <section class="calculated-kw">
+          <section class="calculated-kw-section">
             <label class="calculate-kw-label" for="calculated-kw"
               >Calculated Kilowatts (kW)</label
             >
@@ -164,7 +169,11 @@
             <label class="powerwall-battery-label" for="powerwall-battery"
               >Powerwall Battery Storage*</label
             >
-            <button class="btn powerwall-battery-plus-btn" type="button">
+            <button
+              id="powerwall-battery-plus-btn"
+              class="btn powerwall-battery-plus-btn"
+              type="button"
+            >
               +
             </button>
             <input
@@ -172,9 +181,14 @@
               class="powerwall-battery-input"
               id="powerwall-battery-input"
               name="Powerwall Battery"
+              value="0"
               required
             />
-            <button class="btn powerwall-battery-minus-btn" type="button">
+            <button
+              id="powerwall-battery-minus-btn"
+              class="btn powerwall-battery-minus-btn"
+              type="button"
+            >
               -
             </button>
           </section>
@@ -182,8 +196,8 @@
 
         <!-- Totals and Incentives Calculations -->
         <section class="calc-form-section-2">
-          <section class="totals-section">
-            <label class="roof-before-itc" for="roof-before-itc"
+          <section class="est-totals-section">
+            <label class="roof-before-itc-label" for="roof-before-itc-label"
               >Solar Roof Price Before Incentives</label
             >
             <input
@@ -195,8 +209,8 @@
             />
 
             <label
-              class="powerwall-price-before-itc"
-              for="powerwall-price-before-itc"
+              class="powerwall-price-before-itc-label"
+              for="powerwall-price-before-itc-label"
               >Powerwall Price Before Incentives</label
             >
             <input
@@ -204,11 +218,12 @@
               class="input"
               id="powerwall-price-before-itc"
               name="Powerwall Price Before ITC"
+              value="0"
               required
             />
 
-            <label class="est-total-before-itc" for="est-total-before-itc"
-              >Estimated Total Price Before Incentives</label
+            <label class="est-total-before-itc-label" for="est-total-before-itc"
+              >Estimated Total Price Before Incentive</label
             >
             <input
               type="text"
@@ -218,12 +233,23 @@
               required
             />
 
-            <label class="est-itc" for="est-itc">Estimated Solar ITC</label>
+            <label class="est-itc-label" for="est-itc"
+              >Estimated Solar ITC</label
+            >
             <input
               type="text"
               class="input"
               id="est-itc"
               name="Estimated ITC"
+              required
+            />
+
+            <label class="total-cost-label" for="total-cost">Total Cost</label>
+            <input
+              type="text"
+              class="total-cost-input"
+              id="total-cost-input"
+              name="Total Cost"
               required
             />
           </section>
@@ -239,6 +265,7 @@
         />
       </section>
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/js/script.js"></script>
   </body>
 </html>
