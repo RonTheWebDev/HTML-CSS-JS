@@ -172,6 +172,7 @@ input[type="number"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 60px 0 0 0;
 }
 
 /** Style Home Size Section **/
@@ -251,64 +252,41 @@ input[type="number"] {
   }
 
   .calc-form-section-1 {
-    margin-bottom: 4rem;
+    margin: auto;
+    width: 50%;
   }
 
-  .customer-info {
-    width: 50%;
+  .customer-info-section {
     margin: auto;
     margin-bottom: 0;
   }
 
-  .address-section {
+  .total-home-sqft-section {
     margin: auto;
-    width: 50%;
   }
 
-  .total-home-sqft {
+  .calculated-roof-sqft-section {
     margin: auto;
-    width: 50%;
   }
 
-  .calculated-roof-sqft {
+  .annual-kwh-section {
     margin: auto;
-    width: 50%;
   }
 
-  .annual-kwh {
+  .calculated-kw-section {
     margin: auto;
-    width: 50%;
-  }
-
-  .calculated-kw {
-    margin: auto;
-    width: 50%;
   }
 
   .system-section {
     margin: auto;
-    width: 50%;
   }
 
   option {
     font-size: 1rem;
   }
 
-  .totals-section {
-    margin: 0;
+  .est-totals-section {
     width: 50%;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    min-height: 50rem;
-  }
-
-  .totals-section label {
-    min-width: 10rem;
-  }
-
-  .totals-section input {
-    font-size: 1rem;
-    min-width: 10rem;
   }
 
   .submit-btn {
