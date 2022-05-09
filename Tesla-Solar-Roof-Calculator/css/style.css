@@ -182,7 +182,6 @@ input[type="number"] {
   border: var(--black);
   border-style: solid;
   background: var(--lightGray);
-  margin-right: 5rem;
   border-width: 1px;
   padding: 5rem;
   display: flex;
