@@ -42,9 +42,12 @@ form {
   align-items: center;
   margin-top: 4rem;
   margin-bottom: 4rem;
+  margin-left: 150px;
+  margin-right: 150px;
 }
 
 .form-title {
+  display: none;
   text-align: center;
   margin-top: 5rem;
 }
@@ -60,6 +63,8 @@ input {
   padding: 2rem;
   text-align: center;
   background: var(--white);
+  border: solid rgba(0, 0, 0, 0.5) 1px;
+  border-radius: 3px;
 }
 
 select {
@@ -78,6 +83,11 @@ button {
   color: var(--white);
   padding-left: 2rem;
   padding-right: 2rem;
+  transition: 0.2s;
+}
+button:hover {
+  background-color: #bb0b1f;
+  transition: 0.2s;
 }
 
 /** Individual Element Styles **/
@@ -179,7 +189,7 @@ input[type="number"] {
 
 /** Calculator Form 2 Styles **/
 .est-totals-section {
-  border: var(--black);
+  border: rgba(0, 0, 0, 0.5);
   border-style: solid;
   background: var(--lightGray);
   border-width: 1px;
@@ -194,6 +204,7 @@ input[type="number"] {
 
 .est-totals-section label {
   margin-top: 2rem;
+  line-height: 18px;
 }
 
 .submit-section {
@@ -202,24 +213,21 @@ input[type="number"] {
 }
 
 .submit-btn {
-  border-style: solid;
-  border-width: 1px 1px 1px 1px;
-  border-color: #ffffff;
   color: #ffffff;
   background-color: var(--primary);
-  padding: 2rem;
+  padding: 15px 40px;
   font-size: 2rem;
   text-transform: uppercase;
-  border-radius: 1rem;
-  width: 10%;
+  border-radius: 3px;
+  width: auto;
   cursor: pointer;
   margin-top: 10rem;
+  transition: 0.2s;
 }
 
 .submit-btn:hover {
-  background: var(--white);
-  color: var(--black);
-  border: 0.2rem var(--black) solid;
+  background: #bb0b1f;
+  transition: 0.2s;
 }
 
 .total-section {
@@ -235,6 +243,8 @@ input[type="number"] {
     margin-top: 4rem;
     margin-bottom: 4rem;
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   label {
