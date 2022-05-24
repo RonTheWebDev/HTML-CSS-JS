@@ -1,31 +1,39 @@
-// Declare variables
+// Declare letiables
 
 // Input fields
 
-var totalHomeSqftInput = $("#total-home-sqft-input");
-var calcRoofSqftInput = $("#calculated-roof-sqft-input").prop("disabled", true);
-var annualKwInput = $("#annual-kwh-input");
-var calcKwInput = $("#calculated-kw-input").prop("disabled", true);
-var systemSizeInput = $("#system-size-input").prop("disabled", true);
-var roofCompInput = $("#roof-complexity-input");
-var pwrWallBattInput = $("#powerwall-battery-input").prop("disabled", true);
-var pwrWallBattInput = $("#powerwall-battery-input").prop("disabled", true);
-var totalCostInput = $("#total-cost-input").prop("disabled", true);
+const moneyFormat = new Intl.NumberFormat("en", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 2,
+});
+
+let totalHomeSqftInput = $("#total-home-sqft-input");
+let calcRoofSqftInput = $("#calculated-roof-sqft-input").prop("disabled", true);
+let annualKwInput = $("#annual-kwh-input");
+let calcKwInput = $("#calculated-kw-input").prop("disabled", true);
+let systemSizeInput = $("#system-size-input").prop("disabled", true);
+let roofCompInput = $("#roof-complexity-type");
+let pwrWallBattInput = $("#powerwall-battery-input").prop("disabled", true);
+let totalCostInput = $("#total-cost-input").prop("disabled", true);
 
 // ITC fields
 
-var roofPriceBeforeItc = $("#roof-price-before-itc").prop("disabled", true);
-var estTotalBeforeItc = $("#est-total-before-itc").prop("disabled", true);
-var estItc = $("#est-itc").prop("disabled", true);
-var pwrWallPriceBeforeItc = $("#powerwall-price-before-itc").prop(
+let roofPriceBeforeItc = $("#roof-price-before-itc-input").prop(
+  "disabled",
+  true
+);
+let estTotalBeforeItc = $("#est-total-before-itc-input").prop("disabled", true);
+let estItc = $("#est-itc-input").prop("disabled", true);
+let pwrWallPriceBeforeItc = $("#powerwall-price-before-itc-input").prop(
   "disabled",
   true
 );
 
 // Button fields
 
-var pwrWallBattPlusBtn = $("#powerwall-battery-plus-btn");
-var pwrWallBattMinusBtn = $("#powerwall-battery-minus-btn");
+let pwrWallBattPlusBtn = $("#powerwall-battery-plus-btn");
+let pwrWallBattMinusBtn = $("#powerwall-battery-minus-btn");
 
 /**** Calc Form Section 1 Calculations ****/
 
@@ -501,59 +509,71 @@ $(document).ready(function () {
 $(document).ready(function () {
   roofCompInput.change(function () {
     if (roofCompInput.prop("selectedIndex") == 1) {
-      Number(
-        roofPriceBeforeItc.val(
-          (
-            +calcRoofSqftInput.val() * 18 +
+      roofPriceBeforeItc.val(
+        moneyFormat.format(
+          +calcRoofSqftInput.val() * 18 +
             2000 * +systemSizeInput.val().replace(" kW", "")
-          ).toFixed(2)
         )
-      ).toFixed(2);
-
+      );
       if (roofPriceBeforeItc.val() !== 0 && pwrWallPriceBeforeItc.val() == 0) {
-        pwrWallPriceBeforeItc.val((0).toFixed(2));
-        estTotalBeforeItc.val(Number(+roofPriceBeforeItc.val()).toFixed(2));
-        estItc.val(Number(0.26 * +estTotalBeforeItc.val()).toFixed(2));
+        pwrWallPriceBeforeItc.val(moneyFormat.format(0));
+        estTotalBeforeItc.val(roofPriceBeforeItc.val());
+        estItc.val(
+          moneyFormat.format(
+            +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") * 0.26
+          )
+        );
         totalCostInput.val(
-          "$" + Number(+estTotalBeforeItc.val() - +estItc.val()).toFixed(2)
+          moneyFormat.format(
+            +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") -
+              +estItc.val().replace(/[^\d\.]/g, "")
+          )
         );
       }
     } else if (roofCompInput.prop("selectedIndex") == 2) {
-      Number(
-        roofPriceBeforeItc.val(
-          (
-            +calcRoofSqftInput.val() * 20 +
+      roofPriceBeforeItc.val(
+        moneyFormat.format(
+          +calcRoofSqftInput.val() * 20 +
             2000 * +systemSizeInput.val().replace(" kW", "")
-          ).toFixed(2)
         )
-      ).toFixed(2);
-
+      );
       if (roofPriceBeforeItc.val() !== 0 && pwrWallPriceBeforeItc.val() == 0) {
-        pwrWallPriceBeforeItc.val((0).toFixed(2));
-        estTotalBeforeItc.val(Number(+roofPriceBeforeItc.val()).toFixed(2));
-        estItc.val(Number(0.26 * +estTotalBeforeItc.val()).toFixed(2));
+        pwrWallPriceBeforeItc.val(moneyFormat.format(0));
+        estTotalBeforeItc.val(roofPriceBeforeItc.val());
+        estItc.val(
+          moneyFormat.format(
+            +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") * 0.26
+          )
+        );
         totalCostInput.val(
-          "$" + Number(+estTotalBeforeItc.val() - +estItc.val()).toFixed(2)
+          moneyFormat.format(
+            +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") -
+              +estItc.val().replace(/[^\d\.]/g, "")
+          )
         );
       }
     } else if (roofCompInput.prop("selectedIndex") == 3) {
-      Number(
-        roofPriceBeforeItc.val(
-          (
-            +calcRoofSqftInput.val() * 24 +
+      roofPriceBeforeItc.val(
+        moneyFormat.format(
+          +calcRoofSqftInput.val() * 24 +
             2000 * +systemSizeInput.val().replace(" kW", "")
-          ).toFixed(2)
         )
-      ).toFixed(2);
-
-      if (roofPriceBeforeItc.val() !== 0 && pwrWallPriceBeforeItc.val() == 0) {
-        pwrWallPriceBeforeItc.val((0).toFixed(2));
-        estTotalBeforeItc.val(Number(+roofPriceBeforeItc.val()).toFixed(2));
-        estItc.val(Number(0.26 * +estTotalBeforeItc.val()).toFixed(2));
-        totalCostInput.val(
-          "$" + Number(+estTotalBeforeItc.val() - +estItc.val()).toFixed(2)
-        );
-      }
+      );
+    }
+    if (roofPriceBeforeItc.val() !== 0 && pwrWallPriceBeforeItc.val() == 0) {
+      pwrWallPriceBeforeItc.val(moneyFormat.format(0));
+      estTotalBeforeItc.val(roofPriceBeforeItc.val());
+      estItc.val(
+        moneyFormat.format(
+          +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") * 0.26
+        )
+      );
+      totalCostInput.val(
+        moneyFormat.format(
+          +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") -
+            +estItc.val().replace(/[^\d\.]/g, "")
+        )
+      );
     }
   });
 });
@@ -580,32 +600,65 @@ pwrWallBattMinusBtn.click(function () {
 
 pwrWallBattPlusBtn.click(function () {
   if (pwrWallBattInput.val() == 0) {
+    pwrWallPriceBeforeItc.val(0);
     estTotalBeforeItc.val(
-      (+roofPriceBeforeItc.val() + +pwrWallPriceBeforeItc.val()).toFixed(2)
+      moneyFormat.format(
+        +roofPriceBeforeItc.val().replace(/[^\d\.]/g, "") +
+          +pwrWallPriceBeforeItc.val().replace(/[^\d\.]/g, "")
+      )
     );
-    estItc.val((0.26 * +estTotalBeforeItc.val()).toFixed(2));
+    estItc.val(
+      moneyFormat.format(
+        0.26 * +estTotalBeforeItc.val().replace(/[^\d\.]/g, "")
+      )
+    );
     totalCostInput.val(
-      "$" + (+estTotalBeforeItc.val() - +estItc.val()).toFixed(2)
+      moneyFormat.format(
+        +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") -
+          +estItc.val().replace(/[^\d\.]/g, "")
+      )
     );
   } else if (pwrWallBattInput.val() == 1) {
-    pwrWallPriceBeforeItc.val((16700).toFixed(2));
+    pwrWallPriceBeforeItc.val(moneyFormat.format(16700));
     estTotalBeforeItc.val(
-      (+roofPriceBeforeItc.val() + +pwrWallPriceBeforeItc.val()).toFixed(2)
+      moneyFormat.format(
+        +roofPriceBeforeItc.val().replace(/[^\d\.]/g, "") +
+          +pwrWallPriceBeforeItc.val().replace(/[^\d\.]/g, "")
+      )
     );
-    estItc.val((0.26 * +estTotalBeforeItc.val()).toFixed(2));
+    estItc.val(
+      moneyFormat.format(
+        0.26 * +estTotalBeforeItc.val().replace(/[^\d\.]/g, "")
+      )
+    );
     totalCostInput.val(
-      "$" + (+estTotalBeforeItc.val() - +estItc.val()).toFixed(2)
+      moneyFormat.format(
+        +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") -
+          +estItc.val().replace(/[^\d\.]/g, "")
+      )
     );
   } else if (pwrWallBattInput.val() > 1) {
     pwrWallPriceBeforeItc.val(
-      (16700 + (+pwrWallBattInput.val() - 1) * 12810).toFixed(2)
+      moneyFormat.format(
+        16700 + (+pwrWallBattInput.val().replace(/[^\d\.]/g, "") - 1) * 12810
+      )
     );
     estTotalBeforeItc.val(
-      (+roofPriceBeforeItc.val() + +pwrWallPriceBeforeItc.val()).toFixed(2)
+      moneyFormat.format(
+        +roofPriceBeforeItc.val().replace(/[^\d\.]/g, "") +
+          +pwrWallPriceBeforeItc.val().replace(/[^\d\.]/g, "")
+      )
     );
-    estItc.val((0.26 * +estTotalBeforeItc.val()).toFixed(2));
+    estItc.val(
+      moneyFormat.format(
+        0.26 * +estTotalBeforeItc.val().replace(/[^\d\.]/g, "")
+      )
+    );
     totalCostInput.val(
-      "$" + (+estTotalBeforeItc.val() - +estItc.val()).toFixed(2)
+      moneyFormat.format(
+        +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") -
+          +estItc.val().replace(/[^\d\.]/g, "")
+      )
     );
   }
 });
@@ -614,31 +667,63 @@ pwrWallBattMinusBtn.click(function () {
   if (pwrWallBattInput.val() == 0) {
     pwrWallPriceBeforeItc.val(0);
     estTotalBeforeItc.val(
-      (+roofPriceBeforeItc.val() + +pwrWallPriceBeforeItc.val()).toFixed(2)
+      monetyFormat.format(
+        +roofPriceBeforeItc.val().replace(/[^\d\.]/g, "") +
+          +pwrWallPriceBeforeItc.val().replace(/[^\d\.]/g, "")
+      )
     );
-    estItc.val((0.26 * +estTotalBeforeItc.val()).toFixed(2));
+    estItc.val(
+      moneyFormat.format(
+        0.26 * +estTotalBeforeItc.val().replace(/[^\d\.]/g, "")
+      )
+    );
     totalCostInput.val(
-      "$" + (+estTotalBeforeItc.val() - +estItc.val()).toFixed(2)
+      moneyFormat.format(
+        +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") -
+          +estItc.val().replace(/[^\d\.]/g, "")
+      )
     );
   } else if (pwrWallBattInput.val() == 1) {
-    pwrWallPriceBeforeItc.val((16700).toFixed(2));
+    pwrWallPriceBeforeItc.val(moneyFormat.format(16700));
     estTotalBeforeItc.val(
-      (+roofPriceBeforeItc.val() + +pwrWallPriceBeforeItc.val()).toFixed(2)
+      moneyFormat.format(
+        +roofPriceBeforeItc.val().replace(/[^\d\.]/g, "") +
+          +pwrWallPriceBeforeItc.val().replace(/[^\d\.]/g, "")
+      )
     );
-    estItc.val((0.26 * +estTotalBeforeItc.val()).toFixed(2));
+    estItc.val(
+      moneyFormat.format(
+        0.26 * +estTotalBeforeItc.val().replace(/[^\d\.]/g, "")
+      )
+    );
     totalCostInput.val(
-      "$" + (+estTotalBeforeItc.val() - +estItc.val()).toFixed(2)
+      moneyFormat.format(
+        +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") -
+          +estItc.val().replace(/[^\d\.]/g, "")
+      )
     );
   } else if (pwrWallBattInput.val() > 1) {
     pwrWallPriceBeforeItc.val(
-      (12810 * (+pwrWallBattInput.val() - 1) + 16700).toFixed(2)
+      moneyFormat.format(
+        12810 * (+pwrWallBattInput.val().replace(/[^\d\.]/g, "") - 1) + 16700
+      )
     );
     estTotalBeforeItc.val(
-      (+roofPriceBeforeItc.val() + +pwrWallPriceBeforeItc.val()).toFixed(2)
+      moneyFormat.format(
+        +roofPriceBeforeItc.val().replace(/[^\d\.]/g, "") +
+          +pwrWallPriceBeforeItc.val().replace(/[^\d\.]/g, "")
+      )
     );
-    estItc.val((0.26 * +estTotalBeforeItc.val()).toFixed(2));
+    estItc.val(
+      moneyFormat.format(
+        0.26 * +estTotalBeforeItc.val().replace(/[^\d\.]/g, "")
+      )
+    );
     totalCostInput.val(
-      "$" + (+estTotalBeforeItc.val() - +estItc.val()).toFixed(2)
+      moneyFormat.format(
+        +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") -
+          +estItc.val().replace(/[^\d\.]/g, "")
+      )
     );
   }
 });

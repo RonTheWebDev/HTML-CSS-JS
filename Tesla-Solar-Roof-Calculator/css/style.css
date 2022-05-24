@@ -249,6 +249,7 @@ input[type="number"] {
 
   label {
     font-size: 1rem;
+    min-width: 120px;
   }
 
   button {
@@ -258,6 +259,7 @@ input[type="number"] {
 
   input {
     font-size: 1rem;
+    min-width: 120px;
   }
 
   .calc-form-section-1 {
