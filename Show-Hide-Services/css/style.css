@@ -1,0 +1,33 @@
+.parent h1 {
+  text-align: center;
+}
+
+.all-buttons {
+  text-transform: uppercase;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.all-services
+{
+  margin-top: 50px;
+}
+
+.all-services h2 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+section {
+  border: solid;
+  border-radius: 5px;
+}
+
+/* Used for JS*/
+
+.hidden {
+  display: none;
+}
