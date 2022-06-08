@@ -8,6 +8,10 @@ const moneyFormat = new Intl.NumberFormat("en", {
   minimumFractionDigits: 2,
 });
 
+$("#disable-link").click(function (e) {
+  e.preventDefault();
+});
+
 let totalHomeSqftInput = $("#total-home-sqft-input");
 let calcRoofSqftInput = $("#calculated-roof-sqft-input").prop("disabled", true);
 let annualKwInput = $("#annual-kwh-input");
@@ -667,7 +671,7 @@ pwrWallBattMinusBtn.click(function () {
   if (pwrWallBattInput.val() == 0) {
     pwrWallPriceBeforeItc.val(0);
     estTotalBeforeItc.val(
-      monetyFormat.format(
+      moneyFormat.format(
         +roofPriceBeforeItc.val().replace(/[^\d\.]/g, "") +
           +pwrWallPriceBeforeItc.val().replace(/[^\d\.]/g, "")
       )
